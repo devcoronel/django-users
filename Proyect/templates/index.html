@@ -1,0 +1,36 @@
+{% extends 'layout.html'%}
+{% block title %} Users {% endblock %}
+{% block content %}
+<div>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>NAME</th>
+				<th>LAST NAME</th>
+				<th>EMAIL</th>
+				<th>PHONE</th>
+				<th>SEX</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for user in users %}
+				<tr>
+					<td>{{ user.id }}</td>
+					<td>{{ user.name }}</td>
+					<td>{{ user.last_name }}</td>
+					<td>{{ user.email }}</td>
+					<td>{{ user.phone }}</td>
+					<td>{{ user.sex }}</td>
+					<td><a href="{% url 'edit' user.id %}">Edit</a></td>
+					<td><a href="{% url 'delete' user.id %}">Delete</a></td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+
+<div>
+	<h3>Create more users <a href="{% url 'adduser' %}">here</a></h3>
+</div>
+{% endblock %}

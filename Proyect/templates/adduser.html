@@ -1,0 +1,17 @@
+{% extends 'layout.html'%}
+{% block title %} {{ title }} {% endblock %}
+{% block content %}
+<div>
+	<h2>Create new user</h2>
+	<form method="POST">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type="Submit">{{ button }}</button>
+	</form>
+</div>
+<div>
+	<h3>See all users <a href="{% url 'users' %}">here</a></h3>
+</div>
+	
+
+{% endblock %}
